@@ -1,0 +1,23 @@
+{
+    "name": "VanshVeda - Eco-Friendly Cow Dung Products",
+    "short_name": "VanshVeda",
+    "description": "Premium organic cow-dung based products for sustainable living",
+    "icons": [
+        {
+            "src": "/src/images/favicon_io/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/src/images/favicon_io/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#2d5016",
+    "background_color": "#f8f9fa",
+    "display": "standalone",
+    "start_url": "/",
+    "scope": "/",
+    "orientation": "portrait-primary"
+}
