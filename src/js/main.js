@@ -1,6 +1,16 @@
 /* ===== VanshVeda Main JavaScript ===== */
 
-// DOM Content Loaded Event\ndocument.addEventListener('DOMContentLoaded', function() {\n    // Initialize all components\n    initNavigation();\n    initScrollEffects();\n    initVideoPlayer();\n    initAnimations();\n    initAccessibility();\n    initPerformanceOptimizations();\n    \n    console.log('🌱 VanshVeda website initialized - Sustainable & Organic!');\n});\n\n/* ===== Navigation Functions ===== */\nfunction initNavigation() {\n    const navbar = document.querySelector('.navbar');\n    const hamburger = document.querySelector('.hamburger');\n    const navMenu = document.querySelector('.nav-menu');\n    const navLinks = document.querySelectorAll('.nav-link');\n    \n    // Mobile menu toggle\n    if (hamburger && navMenu) {\n        hamburger.addEventListener('click', function() {\n            hamburger.classList.toggle('active');\n            navMenu.classList.toggle('active');\n            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';\n        });\n    }\n    \n    // Close mobile menu when clicking nav links\n    navLinks.forEach(link => {\n        link.addEventListener('click', function() {\n            if (hamburger && navMenu) {\n                hamburger.classList.remove('active');\n                navMenu.classList.remove('active');\n                document.body.style.overflow = 'auto';\n            }\n        });\n    });\n    \n    // Navbar scroll effect\n    if (navbar) {\n        window.addEventListener('scroll', function() {\n            if (window.scrollY > 100) {\n                navbar.classList.add('scrolled');\n            } else {\n                navbar.classList.remove('scrolled');\n            }\n        });\n    }\n    \n    // Smooth scrolling for navigation links\n    navLinks.forEach(link => {\n        link.addEventListener('click', function(e) {\n            e.preventDefault();\n            const targetId = this.getAttribute('href');\n            const targetSection = document.querySelector(targetId);\n            \n            if (targetSection) {\n                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar\n                window.scrollTo({\n                    top: offsetTop,\n                    behavior: 'smooth'\n                });\n            }\n        });\n    });\n    \n    // Active nav link highlighting\n    const sections = document.querySelectorAll('section[id], div[id]');\n    \n    function highlightActiveNavLink() {\n        let current = '';\n        const scrollY = window.pageYOffset;\n        \n        sections.forEach(section => {\n            const sectionTop = section.offsetTop - 100;\n            const sectionHeight = section.offsetHeight;\n            \n            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {\n                current = section.getAttribute('id');\n            }\n        });\n        \n        navLinks.forEach(link => {\n            link.classList.remove('active');\n            if (link.getAttribute('href') === `#${current}`) {\n                link.classList.add('active');\n            }\n        });\n    }\n    \n    window.addEventListener('scroll', highlightActiveNavLink);\n    highlightActiveNavLink(); // Call once on load\n}
+// DOM Content Loaded Event
+document.addEventListener('DOMContentLoaded', function() {
+    // Note: navigation.js handles initNavigation()
+    initScrollEffects();
+    initVideoPlayer();
+    initAnimations();
+    initAccessibility();
+    initPerformanceOptimizations();
+    
+    console.log('🌱 VanshVeda website initialized - Sustainable & Organic!');
+});
 
 /* ===== Scroll Effects ===== */
 function initScrollEffects() {
@@ -609,16 +619,14 @@ function initContactForm() {
     }
 }
 
-// Add to initialization
+// Initialize all components on DOM load
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
-    initNavigation();
     initScrollEffects();
     initVideoPlayer();
     initAnimations();
     initAccessibility();
     initPerformanceOptimizations();
-    initContactForm(); // Add this line
+    initContactForm();
     
     console.log('🌱 VanshVeda website initialized - Sustainable & Organic!');
 });
